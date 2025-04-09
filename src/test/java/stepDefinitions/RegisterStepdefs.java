@@ -111,14 +111,14 @@ public class RegisterStepdefs {
     @Then("I Submit and verify")
     public void iSubmitAndVerify() {
         driver.findElement(By.cssSelector("input[name='join']")).click();
-        waitFor(driver, By.cssSelector("a[href*='MembershipNumber']"));
+        waitForDisplayed(driver, By.cssSelector("a[href*='MembershipNumber']"));
         assertEquals("THANK YOU FOR CREATING AN ACCOUNT WITH BASKETBALL ENGLAND",
                 driver.findElement(By.cssSelector("h2")).getText());
     }
     @Then("I Submit and verify missing last name")
     public void iSubmitAndVerifyMissingLastName() {
         driver.findElement(By.cssSelector("input[name='join']")).click();
-        waitFor(driver,By.cssSelector("span[for='member_lastname']"));
+        waitForDisplayed(driver,By.cssSelector("span[for='member_lastname']"));
         assertEquals("Last Name is required",
                 driver.findElement(By.cssSelector("span[for='member_lastname']")).getText());
     }
@@ -126,7 +126,7 @@ public class RegisterStepdefs {
     @Then("I Submit and verify passwords not matching")
     public void iSubmitAndVerifyPasswordsMismatch() {
         driver.findElement(By.cssSelector("input[name='join']")).click();
-        waitFor(driver,By.cssSelector("span[for='signupunlicenced_confirmpassword']"));
+        waitForDisplayed(driver,By.cssSelector("span[for='signupunlicenced_confirmpassword']"));
         assertEquals("Password did not match",
                 driver.findElement(By.cssSelector("span[for='signupunlicenced_confirmpassword']")).getText());
     }
@@ -134,12 +134,12 @@ public class RegisterStepdefs {
     @Then("I Submit and verify terms&conditions not accepted")
     public void iSubmitAndVerifyTermsConditionsNotAccepted() {
         driver.findElement(By.cssSelector("input[name='join']")).click();
-        waitFor(driver,By.cssSelector("span[for='TermsAccept']"));
+        waitForDisplayed(driver,By.cssSelector("span[for='TermsAccept']"));
         assertEquals("You must confirm that you have read and accepted our Terms and Conditions",
                 driver.findElement(By.cssSelector("span[for='TermsAccept']")).getText());
     }
 
-    private static void waitFor(WebDriver driver, By by){
+    private static void waitForDisplayed(WebDriver driver, By by){
         WebElement element = (new WebDriverWait(driver, Duration.ofSeconds(10))).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 

@@ -22,11 +22,11 @@ Feature: register a user on https://membership.basketballengland.co.uk/NewSuppor
     Examples:
       | Browser | Category             | Input    | error                         |
       | chrome  | name                 | Torbjörn | missing last name             |
-      | chrome  | mismatching password | Test123  | passwords not matching        |
-      | chrome  | terms&conditions     | none     | terms&conditions not accepted |
       | firefox | name                 | Torbjörn | missing last name             |
-      | firefox | mismatching password | Test123  | passwords not matching        |
-      | firefox | terms&conditions     | none     | terms&conditions not accepted |
       | edge    | name                 | Torbjörn | missing last name             |
+      | chrome  | mismatching password | Test123  | passwords not matching        |
+      | firefox | mismatching password | Test123  | passwords not matching        |
       | edge    | mismatching password | Test123  | passwords not matching        |
+      | chrome  | terms&conditions     | none     | terms&conditions not accepted |
+      | firefox | terms&conditions     | none     | terms&conditions not accepted |
 
